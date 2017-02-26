@@ -1,0 +1,73 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int T;
+    long long s,i,num=0;
+    string str;
+    char c;
+    scanf("%d",&T);
+
+    while(T--)
+    {
+        cin>>str;
+        c=getchar();
+
+        s=str.size();
+        num=0;
+
+        if(str[0]=='-')
+        {
+             if(s<=6)
+            {
+                for(int i=1; i<s; i++)
+                    num=(num*10)+ (str[i]-'0');
+                num=-1* num;
+                if(num== -0)
+                    num=0;
+
+                printf("%lld\n",num);
+                //cout<<str<<endl;
+                continue;
+            }
+           // printf("-");
+
+            for(i=s-5; i<s; i++)
+            {
+                num=(num*10)+ (str[i]-'0');
+
+                //printf("%c",str[i]);
+            }
+            num= -num;
+            if(num== -0)
+                num = 0;
+
+            printf("%lld\n",num);
+        }
+        else
+        {
+             if(s<=5)
+            {
+                //cout<<str<<endl;
+                 for(int i=0; i<s; i++)
+                    num=(num*10)+ (str[i]-'0');
+
+
+                    printf("%lld\n",num);
+                continue;
+            }
+
+            for(i=s-5; i<s; i++)
+            {
+                num=(num*10)+ (str[i]-'0');
+                //printf("%c",str[i]);
+            }
+            printf("%lld\n",num);
+
+        }
+
+    }
+
+    return 0;
+}
