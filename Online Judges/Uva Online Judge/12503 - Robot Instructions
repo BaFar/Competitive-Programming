@@ -1,0 +1,61 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+   // freopen("12503 input","r",stdin);
+     int T,c,num,point=0,instructions[110],ins,temp,k,i;
+     string str;
+
+     scanf("%d",&T);
+
+     while(T--)
+     {
+         point=0;
+        scanf("%d",&ins);
+        char c=getchar();
+        for(i=0; i<ins; i++)
+        {
+            getline(cin,str);
+         //cin>>str;
+         //cout<<str<<endl;
+
+         if(str[0]=='L')
+         {
+            point = point - 1;
+            instructions[i]= -1;
+         }
+         else if(str[0]=='R')
+         {
+             point = point + 1;
+            instructions[i]= 1;
+         }
+         else
+         {
+             temp = 0;
+             k = 8;
+             num = str.size();
+            // printf("str size is %d \n",num);
+
+             while(k<num)
+             {
+                 temp =temp * 10 +(str[k++] - 48);
+             }
+              //  scanf("%c",&c);
+            // printf("WELL\n");
+
+             instructions[i] = instructions[temp-1];
+             point = point + instructions[i];
+         }
+
+
+        }
+        printf("%d\n",point);
+
+
+     }
+
+
+
+    return 0;
+}
